@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أكويا ووتر بارك - عيد الأضحى 2025 | دريم أليكس</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMwLtVKx_3-zd_3.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMwLtVKx_3-zd_3.woff2" as="font" type="font/woff2" crossorigin>
+
+    <style>
+        /* =====================================================================
+        قسم الأنماط الأساسية (Base Styles)
+        يحتوي على الأنماط العامة للجسم والخطوط لضمان تناسق التصميم.
+        =====================================================================
+        */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* لون خلفية رمادي فاتح لمظهر نظيف */
+            color: #333; /* لون نص رمادي داكن لسهولة القراءة */
+            scroll-behavior: smooth; /* تمرير سلس للروابط الداخلية */
+            /* تفعيل التخزين المؤقت للمتصفح (Browser Caching) - ملاحظة: هذا يتم التحكم فيه بشكل أساسي من جانب الخادم */
+            /* Cache-Control: max-age=31536000, public; */
+        }
+
+        /* =====================================================================
+        قسم مؤشر تقدم التمرير (Scroll Progress Indicator)
+        يُظهر شريط تقدم في أعلى الصفحة يعكس مدى تصفح المستخدم.
+        =====================================================================
+        */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 5px;
+            background: linear-gradient(to right, #007bff, #00c6ff); /* تدرج أزرق لشريط التقدم */
+            z-index: 1000; /* يضمن ظهوره فوق العناصر الأخرى */
+            transition: width 0.1s ease-out; /* انتقال سلس لتغييرات العرض */
+        }
+
+        /* =====================================================================
+        قسم قسم البطل (Hero Section)
+        القسم الرئيسي الجذاب في أعلى الصفحة، مع خلفية ديناميكية وتأثيرات بصرية.
+        =====================================================================
+        */
+        .hero-section {
+            background: linear-gradient(to right, #007bff, #00c6ff); /* تدرج أزرق حيوي */
+            color: white; /* نص أبيض للتباين */
+            padding: 6rem 1rem; /* حشوة كبيرة لتأثير بصري قوي */
+            text-align: center;
+            position: relative;
+            overflow: hidden; /* إخفاء عناصر الخلفية المتجاوزة */
+            border-bottom-left-radius: 50px; /* حواف دائرية لمظهر عصري */
+            border-bottom-right-radius: 50px;
+            background-size: cover; /* تغطية القسم بالكامل */
+            background-position: center; /* توسيط الصورة */
+            transition: background-image 1s ease-in-out; /* انتقال سلس لصورة الخلفية */
+            /* تطبيق تأثير التمرير المنظر (Parallax Scrolling) على الخلفية */
+            background-attachment: fixed;
+        }
+
+        /* تمت إزالة تأثير الجسيمات الخفيفة (فقاعات متلألئة) من خلفية قسم البطل بناءً على طلب المستخدم.
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); 
+            z-index: 0; 
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 90% 30%, rgba(255, 255, 255, 0.12) 0%, transparent 50%);
+            background-size: 20px 20px, 30px 30px, 15px 15px, 25px 25px; 
+            animation: moveParticles 15s linear infinite; 
+        }
+
+        @keyframes moveParticles {
+            0% { background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%; }
+            100% { background-position: 100% 100%, 100% 100%, 100% 100%, 100% 100%; }
+        }
+        */
+
+        /* التأكد من أن محتوى قسم البطل يظهر فوق التراكب */
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* =====================================================================
+        قسم مؤقت العد التنازلي (Countdown Timer)
+        تصميم المؤقت لتعزيز الإلحاح والندرة.
+        =====================================================================
+        */
+        .countdown-timer {
+            @apply flex justify-center items-center gap-4 mt-8 mb-12 flex-wrap; /* flex-wrap لضمان الاستجابة على الشاشات الصغيرة */
+        }
+        .countdown-item {
+            /* تعديل: تم التغيير إلى flex-row للمحتوى الأفقي داخل كل عنصر */
+            @apply bg-white text-blue-700 p-4 rounded-lg shadow-xl flex flex-row items-baseline justify-center gap-2; /* إضافة gap-2 للمسافة بين الرقم والوحدة */
+            min-width: 120px; /* زيادة الحد الأدنى للعرض لاستيعاب النص الأفقي */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* انتقال سلس للتمرير */
+        }
+        .countdown-item:hover {
+            transform: translateY(-5px) scale(1.02); /* رفع وتكبير طفيف عند التمرير */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* ظل أكثر وضوحًا عند التمرير */
+        }
+        .countdown-value {
+            @apply text-5xl md:text-6xl font-extrabold; /* زيادة حجم الخط للبروز */
+        }
+        .countdown-label {
+            @apply text-base md:text-lg mt-0; /* زيادة حجم الخط، والتأكد من عدم وجود هامش علوي للتخطيط الأفقي */
+        }
+
+        /* =====================================================================
+        قسم الأزرار (Buttons)
+        أنماط الأزرار الأساسية والثانوية مع تأثيرات التفاعل.
+        =====================================================================
+        */
+        /* نمط الزر الأساسي مع التدرج وتأثيرات التمرير */
+        .btn-primary {
+            @apply bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform;
+            position: relative; /* مطلوب للعناصر الزائفة مثل التوهج */
+            overflow: hidden; /* إخفاء التجاوز لتأثير التوهج */
+            z-index: 1; /* التأكد من أن الزر فوق توهجه */
+        }
+        .btn-primary:hover {
+            transform: scale(1.05) translateY(-2px); /* رفع وتكبير طفيف */
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 123, 255, 0.7); /* ظل أقوى وتوهج أزرق */
+        }
+        /* الرسوم المتحركة النبضية لزر الدعوة الأساسي */
+        .btn-primary.pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(0, 123, 255, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+            }
+        }
+
+        /* نمط الزر الثانوي مع خلفية بيضاء وتأثيرات التمرير */
+        .btn-secondary {
+            @apply bg-white text-blue-600 font-bold py-3 px-8 rounded-full shadow-md hover:bg-gray-100 transition duration-300 ease-in-out transform hover:scale-105;
+        }
+
+        /* =====================================================================
+        قسم البطاقات (Cards)
+        أنماط البطاقات المستخدمة للميزات ومعلومات الاتصال.
+        =====================================================================
+        */
+        .card {
+            @apply bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl; /* تأثير تمرير محسّن */
+        }
+        /* نمط الأيقونات داخل البطاقات - تم استبدال أيقونات Lucide برسومات توضيحية SVG مخصصة */
+        .icon {
+            @apply text-blue-500 mb-4;
+            width: 48px; /* حجم الأيقونة */
+            height: 48px; /* حجم الأيقونة */
+        }
+
+        /* =====================================================================
+        قسم شريط التمرير المخصص (Custom Scrollbar)
+        لتحسين المظهر وتجربة المستخدم.
+        =====================================================================
+        */
+        ::-webkit-scrollbar {
+            width: 8px; /* عرض شريط التمرير */
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; /* لون مسار شريط التمرير */
+            border-radius: 10px; /* حواف دائرية للمسار */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888; /* لون مقبض شريط التمرير */
+            border-radius: 10px; /* حواف دائرية للمقبض */
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555; /* لون المقبض عند التمرير */
+        }
+
+        /* =====================================================================
+        قسم الرسوم المتحركة للإدخال (Keyframe Animations for Entrance Effects)
+        تأثيرات دخول خفية للعناصر عند ظهورها في العرض.
+        =====================================================================
+        */
+        @keyframes fade-in-down {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-down {
+            animation: fade-in-down 0.8s ease-out forwards;
+        }
+
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+            animation: fade-in-up 0.8s ease-out forwards;
+        }
+
+        @keyframes bounce-in {
+            0% { transform: scale(0.8); opacity: 0; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+        .animate-bounce-in {
+            animation: bounce-in 0.8s ease-out forwards;
+        }
+
+        /* =====================================================================
+        قسم زر الدعوة الثابت (Sticky CTA Button)
+        تم إخفاء هذا الزر بناءً على طلب المستخدم.
+        =====================================================================
+        */
+        .sticky-cta {
+            display: none !important; /* إخفاء الزر بالقوة */
+        }
+
+        /* =====================================================================
+        تحسينات إضافية على عناصر النموذج (Form Elements Enhancements)
+        لتحسين التفاعل والملاحظات المرئية.
+        =====================================================================
+        */
+        input[type="text"],
+        input[type="tel"],
+        input[type="number"] {
+            transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        input[type="text"]:focus,
+        input[type="tel"]:focus,
+        input[type="number"]:focus {
+            border-color: #007bff; /* لون الحدود عند التركيز */
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* ظل خفيف عند التركيز */
+            outline: none; /* إزالة التركيز الافتراضي للمتصفح */
+        }
+        /* نمط لرسائل الخطأ في النموذج */
+        .error-message {
+            color: #dc3545; /* لون أحمر للخطأ */
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            text-align: right;
+        }
+    </style>
+    </head>
+<body class="antialiased">
+    <div id="scroll-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+    <header class="hero-section" role="banner">
+        <div class="hero-content max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6 animate-fade-in-down"
+                aria-label="تذكروا هذا التاريخ: عيد الأضحى 2025 في أكويا... لحظة لا تُقَدَّر بثمن!">
+                تذكروا هذا التاريخ: عيد الأضحى 2025 في أكويا... لحظة لا تُقَدَّر بثمن!
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 animate-fade-in-up"
+               aria-label="هل أنتم مستعدون للانغماس في عالم يتجاوز حدود الواقع، حيث الضحكات تُصبح موسيقى، والمغامرات تُنسج ذكريات لا تُمحى، والفرح يُصبح نبض حياتكم؟">
+                هل أنتم مستعدون للانغماس في عالم يتجاوز حدود الواقع، حيث الضحكات تُصبح موسيقى، والمغامرات تُنسج ذكريات لا تُمحى، والفرح يُصبح نبض حياتكم؟
+            </p>
+
+            <div class="countdown-timer" role="timer" aria-label="العد التنازلي لعيد الأضحى 2025">
+                <div class="countdown-item">
+                    <span id="days" class="countdown-value">00</span>
+                    <span class="countdown-label">يوم</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours" class="countdown-value">00</span>
+                    <span class="countdown-label">ساعة</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes" class="countdown-value">00</span>
+                    <span class="countdown-label">دقيقة</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds" class="countdown-value">00</span>
+                    <span class="countdown-label">ثانية</span>
+                </div>
+            </div>
+
+            <a href="#booking-form-section" class="btn-primary inline-block animate-bounce-in" role="button"
+               aria-label="انطلق نحو السعادة الآن! احجز رحلتك إلى أكويا ووتر بارك">
+                انطلق نحو السعادة الآن!
+            </a>
+        </div>
+    </header>
+
+    <main role="main">
+        <section class="py-16 px-4 bg-white" aria-labelledby="akoya-intro-heading">
+            <div class="max-w-6xl mx-auto text-center">
+                <h2 id="akoya-intro-heading" class="text-4xl font-bold mb-8 text-gray-800">
+                    أكويا: حيث تُولد الأساطير وتُصاغ الذكريات الخالدة
+                </h2>
+                <p class="text-lg leading-relaxed text-gray-600 mb-12">
+                    في قلب الساحل الشمالي، تُشرق <strong class="text-blue-600">"أكويا ووتر بارك"</strong> – أكبر وأحدث مدينة مائية في مصر، تحفة فنية مُصممة لتُوقظ الحواس وتُشعل الشرارة في الأرواح. من اللحظة التي تطأ فيها أقدامكم هذا العالم الساحر، ستُغمرون في أجواء استثنائية تُعيد تعريف معنى "الاستمتاع". دعوا أنفسكم تُغريها الأجواء الاحتفالية، وتُسحروا بالعروض المدهشة، وتُبهروا بالابتكارات التي تنتظركم.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card" role="article">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                        <h3 class="text-2xl font-semibold mb-3 text-gray-800">انطلاق الأدرينالين وتحدي المستحيل</h3>
+                        <p class="text-gray-600">
+                            استعدوا لدفقات لا تتوقف من الإثارة مع <strong class="text-blue-600">سبع ألعاب مائية مُذهلة للكبار</strong>، كل منها يروي قصة فريدة من المغامرة. تخيلوا أنفسكم تسبحون ضد التيار، تلامسون السحاب، وتُطلقون صرخات الفرح التي تتردد في أرجاء المكان. <span class="font-semibold text-blue-500">انزلاق يقطع الأنفاس!</span>
+                        </p>
+                    </div>
+                    <div class="card" role="article">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3l.001.001M19 3l.001.001M12 21l.001.001M3 12l.001.001M21 12l.001.001M6.5 6.5l.001.001M17.5 6.5l.001.001M6.5 17.5l.001.001M17.5 17.5l.001.001M12 3v18M3 12h18"></path>
+                        </svg>
+                        <h3 class="text-2xl font-semibold mb-3 text-gray-800">عالم السحر لصغاركم</h3>
+                        <p class="text-gray-600">
+                            دعوا فلذات أكبادكم يكتشفون عالماً من المرح اللامحدود في <strong class="text-blue-600">خمس ألعاب مائية مصممة خصيصًا لهم</strong>. هنا، تُطلق العنان للمرح، وتُصنع القصص البطولية، وتُرسخ الذكريات العائلية التي تدوم مدى الحياة. <span class="font-semibold text-blue-500">ضحكات تملأ الأجواء!</span>
+                        </p>
+                    </div>
+                    <div class="card" role="article">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 10c-1.657 0-3 1.5-3 3s1.343 3 3 3 3-1.5 3-3-1.343-3-3-3zM6 10c-1.657 0-3 1.5-3 3s1.343 3 3 3 3-1.5 3-3-1.343-3-3-3zM12 10c-1.657 0-3 1.5-3 3s1.343 3 3 3 3-1.5 3-3-1.343-3-3-3z"></path>
+                        </svg>
+                        <h3 class="text-2xl font-semibold mb-3 text-gray-800">بحر من الفرح في قلب الصحراء</h3>
+                        <p class="text-gray-600">
+                            انغمسوا في <strong class="text-blue-600">أول وأكبر حمام سباحة بأمواج اصطناعية في الساحل الشمالي</strong>. تجربة فريدة تُحاكي أمواج المحيط، لتمنحكم شعورًا بالانطلاق والحرية التي لا مثيل لها.
+                        </p>
+                    </div>
+                    <div class="card" role="article">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8.707 15.293a1 1 0 00-1.414 1.414l1.414-1.414zm6.586 1.414a1 1 0 001.414-1.414l-1.414 1.414zm-9.192 1.414a1 1 0 001.414 1.414l-1.414-1.414zM18.707 6.707a1 1 0 00-1.414-1.414l1.414 1.414zM12 6v.01M12 12v.01M12 18v.01M12 21a9 9 0 100-18 9 9 0 000 18z"></path>
+                        </svg>
+                        <h3 class="text-2xl font-semibold mb-3 text-gray-800">احتفالية لا تنتهي: كل لحظة تُصبح ذكرى</h3>
+                        <p class="text-gray-600">
+                            من اللحظة التي تشرق فيها الشمس وحتى آخر نجم في الليل، تُحيطكم <strong class="text-blue-600">عروض Animation مبهرة</strong>، تُضفي لمسة من السحر على يومكم وتُبقيكم على أهبة الاستعداد للمزيد من المرح.
+                        </p>
+                    </div>
+                    <div class="card" role="article">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19a3 3 0 100-6 3 3 0 000 6zM21 16a3 3 0 100-6 3 3 0 000 6z"></path>
+                        </svg>
+                        <h3 class="text-2xl font-semibold mb-3 text-gray-800">ليل العيد: سيمفونية الفرح الخالدة</h3>
+                        <p class="text-gray-600">
+                            ومع حلول المساء، تتحول أكويا إلى تحفة فنية مُضاءة، حيث تُقام <strong class="text-blue-600">حفلة مسائية غنائية لأشهر المطربين</strong>. تخيلوا الأنغام تُداعب الروح، والأضواء تُلون السماء، والبهجة تملأ القلوب.
+                        </p>
+                    </div>
+                    <div class="card" role="article">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14v7"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14v7"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14v7"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14v7"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 14h18"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 10v4"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 10v4"></path>
+                        </svg>
+                        <h3 class="text-2xl font-semibold mb-3 text-gray-800">رحلتكم تبدأ قبل أن تبدأ: امتيازات "دريم أليكس" تُعيد تعريف الراحة</h3>
+                        <p class="text-gray-600">
+                            مع "دريم أليكس"، تُصبح كل تفصيلة في رحلتكم جزءًا من التجربة المتكاملة، فنحن نؤمن بأن الرفاهية تبدأ من أول لحظة. استمتعوا <strong class="text-blue-600">بانتقالات فاخرة</strong> ودخول بلا حدود.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 px-4 section-gradient text-center" aria-labelledby="value-heading">
+            <div class="max-w-4xl mx-auto">
+                <h2 id="value-heading" class="text-4xl font-bold mb-8">
+                    اكتشفوا القيمة الحقيقية: استثمار في السعادة لا يُقدر بثمن!
+                </h2>
+                <p class="text-xl leading-relaxed mb-12">
+                    في "دريم أليكس"، نُدرك أن القيمة الحقيقية تكمن في التجربة الاستثنائية التي نُقدمها لكم. صممنا لكم هذا العرض ليُقدم لكم عائدًا يفوق التوقعات، في استثمار مدروس بعناية يُلامس أرواحكم.
+                </p>
+                <div class="flex flex-col md:flex-row justify-center items-center gap-8">
+                    <div class="bg-white text-gray-800 p-8 rounded-xl shadow-lg flex-1" role="article">
+                        <h3 class="text-2xl font-semibold mb-4">ميزانية تناسب أحلامكم</h3>
+                        <p class="text-lg">
+                            هذه ليست مجرد تكلفة، بل هي <strong class="text-blue-600">استثمار ذكي</strong> يفتح آفاقًا جديدة من الازدهار والسعادة، ويُقدم لكم قيمة تتجاوز التوقعات، لتُصبح ذكرى لا تُقدر بثمن.
+                        </p>
+                    </div>
+                    <div class="bg-white text-gray-800 p-8 rounded-xl shadow-lg flex-1" role="article">
+                        <h3 class="text-2xl font-semibold mb-4">قيمة تتجاوز كل التوقعات</h3>
+                        <p class="text-lg">
+                            صُممت هذه التجربة لتقديم قيمة تتجاوز التوقعات، لتُصبح ذكرى لا تُقدر بثمن في أرشيف ذكرياتكم العائلية. إنها فرصة نادرة لأطفالكم لاكتشاف عالم من المرح والدهشة.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 px-4 bg-gray-100 text-center" aria-labelledby="meal-heading">
+            <div class="max-w-4xl mx-auto">
+                <h2 id="meal-heading" class="text-4xl font-bold mb-8 text-gray-800">
+                    ارتقوا بتجربتكم: خيار الوجبة الفاخرة (لمسة من التميز)
+                </h2>
+                <p class="text-lg leading-relaxed text-gray-600 mb-8">
+                    ولتعزيز تجربتكم في أكويا، يُمكنكم إضافة لمسة من الفخامة مع وجبة شهية ومتكاملة تتضمن (نصف دجاجة + بطاطس مقلية + أرز + مخلل). هذه ليست مجرد وجبة، بل هي دعوة لتذوق أشهى النكهات التي تُكمل يومكم المليء بالمرح بأسلوب ملكي، لتُعزز من مستوى راحتكم وتميز تجربتكم.
+                </p>
+                <div class="bg-white p-6 rounded-xl shadow-md inline-block" role="contentinfo">
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-2">وجبة تُعيد تعريف المذاق</h3>
+                    <p class="text-gray-700">رفاهية تُضاف إلى مغامرتك!</p>
+                </div>
+                <p class="text-sm text-gray-500 mt-6" role="note">
+                    <svg class="inline-block align-middle w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    ملاحظة هامة: حرصًا على جودة وسلامة التجربة للجميع، يُمنع دخول المأكولات والمشروبات من الخارج، وذلك وفقًا لتعليمات إدارة القرية.
+                </p>
+            </div>
+        </section>
+
+        <section class="py-16 px-4 bg-blue-600 text-white text-center" aria-labelledby="transport-heading">
+            <div class="max-w-4xl mx-auto">
+                <h2 id="transport-heading" class="text-4xl font-bold mb-8">
+                    هدية "دريم أليكس" لعملائها المتميزين: النقل المجاني الحصري!
+                </h2>
+                <p class="text-xl leading-relaxed mb-12">
+                    تخيلوا مستقبلاً حيث تُصبح التحديات فرصًا، والأحلام إنجازات! نقدم لكم خدمة النقل المجاني تمامًا لجميع عملائنا الكرام الذين يقومون بالحجز من خلال أحد فروعنا. هذه ليست مجرد خدمة، بل هي <strong class="text-yellow-300">فرصة لا تُعوّض</strong> لتجربة لا تُضاهى تبدأ من عتبة منزلكم، وتُجسد التميز بلا حدود الذي تُقدمه "دريم أليكس".
+                </p>
+                <a href="#contact" class="btn-secondary inline-block" role="button"
+                   aria-label="اكتشفوا التميز الآن! تواصلوا معنا لمعرفة المزيد عن النقل المجاني">
+                    اكتشفوا التميز الآن!
+                </a>
+            </div>
+        </section>
+
+        <section class="py-16 px-4 bg-white" aria-labelledby="why-dream-alex-heading">
+            <div class="max-w-6xl mx-auto text-center">
+                <h2 id="why-dream-alex-heading" class="text-4xl font-bold mb-8 text-gray-800">
+                    لماذا تختار "دريم أليكس"؟
+                </h2>
+                <p class="text-lg leading-relaxed text-gray-600 mb-12">
+                    في عالم مليء بالخيارات، نُقدم لكم ما يتجاوز مجرد الخدمات السياحية. نُقدم لكم شريكًا في رحلتكم نحو السعادة، مع التزام لا يتزعزع بالجودة، الخبرة، والتميز الذي لا يُضاهى.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="card" role="article">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <h3 class="text-2xl font-semibold mb-3 text-gray-800">خبرة لا تضاهى</h3>
+                        <p class="text-gray-600">سنوات من الخبرة في تنظيم أروع الرحلات تضمن لكم تجربة سلسة وممتعة.</p>
+                    </div>
+                    <div class="card" role="article">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.975 2.888a1 1 0 00-.324 1.118l1.519 4.674c.3.921-.755 1.688-1.539 1.118l-3.975-2.888a1 1 0 00-1.176 0l-3.975 2.888c-.784.57-1.839-.197-1.539-1.118l1.519-4.674a1 1 0 00-.324-1.118L2.582 9.1c-.783-.57-.381-1.81.588-1.81h4.915a1 1 0 00.95-.69l1.519-4.674z"></path>
+                        </svg>
+                        <h3 class="text-2xl font-semibold mb-3 text-gray-800">جودة لا مساومة عليها</h3>
+                        <p class="text-gray-600">نلتزم بأعلى معايير الجودة في كل تفصيلة لضمان راحتكم ورضاكم التام.</p>
+                    </div>
+                    <div class="card" role="article">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                        <h3 class="text-2xl font-semibold mb-3 text-gray-800">خدمة عملاء استثنائية</h3>
+                        <p class="text-gray-600">فريقنا مكرس لخدمتكم، من لحظة الاستفسار حتى عودتكم بسلام.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="booking-form-section" class="py-16 px-4 section-gradient text-center" aria-labelledby="booking-form-heading">
+            <div class="max-w-2xl mx-auto">
+                <h2 id="booking-form-heading" class="text-4xl font-bold mb-8">
+                    احجز مكانك الآن في أسطورة العيد!
+                </h2>
+                <p class="text-xl leading-relaxed mb-8">
+                    مقاعد السعادة محدودة جدًا، لا تدع الفرصة تفوتك! املأ النموذج أدناه وسنتواصل معك فورًا لتأكيد حجزك.
+                </p>
+                <form id="booking-form" class="bg-white p-8 rounded-xl shadow-lg text-gray-800 text-right" aria-label="نموذج حجز رحلة أكويا ووتر بارك">
+                    <div class="mb-6">
+                        <label for="full-name" class="block text-lg font-semibold mb-2">الاسم الكامل:</label>
+                        <input type="text" id="full-name" name="full-name" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="أدخل اسمك بالكامل" required aria-required="true" aria-describedby="full-name-error">
+                        <div id="full-name-error" class="error-message" aria-live="polite"></div>
+                    </div>
+                    <div class="mb-6">
+                        <label for="phone-number" class="block text-lg font-semibold mb-2">رقم الهاتف:</label>
+                        <input type="tel" id="phone-number" name="phone-number" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="أدخل رقم هاتفك (مثال: 01xxxxxxxxx)" required aria-required="true" pattern="01[0-9]{9}" title="يرجى إدخال رقم هاتف مصري صحيح يبدأ بـ 01 ويتكون من 11 رقمًا." aria-describedby="phone-number-error">
+                        <div id="phone-number-error" class="error-message" aria-live="polite"></div>
+                    </div>
+                    <div class="mb-6">
+                        <label for="num-adults" class="block text-lg font-semibold mb-2">عدد البالغين:</label>
+                        <input type="number" id="num-adults" name="num-adults" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" min="1" value="1" required aria-required="true" aria-describedby="num-adults-error">
+                        <div id="num-adults-error" class="error-message" aria-live="polite"></div>
+                    </div>
+                    <div class="mb-8">
+                        <label for="num-children" class="block text-lg font-semibold mb-2">عدد الأطفال (أقل من 10 سنوات):</label>
+                        <input type="number" id="num-children" name="num-children" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" min="0" value="0" required aria-required="true" aria-describedby="num-children-error">
+                        <div id="num-children-error" class="error-message" aria-live="polite"></div>
+                    </div>
+                    <button type="submit" class="btn-primary w-full text-xl py-4 pulse-animation" role="button" aria-label="إرسال طلب الحجز">
+                        أرسل طلب الحجز الآن!
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <section id="booking" class="py-16 px-4 bg-gray-800 text-white text-center" aria-labelledby="booking-heading">
+            <div class="max-w-4xl mx-auto">
+                <h2 id="booking-heading" class="text-4xl font-bold mb-8 text-yellow-400">
+                    تنبيه خاص: الفرصة تنتظركم ولكنها لا تنتظر طويلاً!
+                </h2>
+                <p class="text-xl leading-relaxed mb-12">
+                    الأعداد محدودة جدًا، الأماكن تُحجز بأسبقية، ولا نرغب في أن تفوتك هذه الفرصة الفريدة. سارع بالحجز الآن لتضمن مقعدك في هذه التحفة الفنية، ولتُقدم لنفسك تجربة تستحقها. هذه ليست مجرد دعوة، بل هي <strong class="text-red-500">تنبيه ملح</strong> بفرصة ذهبية لن تتكرر!
+                </p>
+                <h3 class="text-3xl font-bold mb-8">
+                    دعوة للانطلاق: المستقبل ينتظركم!
+                </h3>
+                <p class="text-xl leading-relaxed mb-12">
+                    لم تعد هناك لحظة للتردد، فمقاعد السعادة محدودة جدًا! هذه ليست مجرد فرصة، بل هي دعوة مُلحة لتُقدم لنفسك تجربة تستحقها، وتُسجل اسمك في قائمة المحظوظين الذين سيشهدون هذه الأمسية الاستثنائية. لا تدع الفرصة تفوتك، فكل دقيقة تمر هي خسارة للحظات لا تُعوّض.
+                </p>
+                <a href="#booking-form-section" class="btn-primary inline-block text-2xl py-4 px-10 pulse-animation" role="button"
+                   aria-label="احجز مقعدك في أسطورة العيد الآن! تواصل معنا للحجز">
+                    احجز مقعدك في أسطورة العيد الآن!
+                </a>
+            </div>
+        </section>
+
+        <section id="contact" class="py-16 px-4 bg-white" aria-labelledby="contact-heading">
+            <div class="max-w-6xl mx-auto text-center">
+                <h2 id="contact-heading" class="text-4xl font-bold mb-8 text-gray-800">
+                    تواصل معنا الآن، ودعنا نُحيل أحلامك إلى واقع ملموس!
+                </h2>
+                <p class="text-lg leading-relaxed text-gray-600 mb-12">
+                    فروعنا في انتظارك لتقديم الاستشارة والحجز:
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+                    <div class="card" role="complementary">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0L6.343 16.657a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        <h3 class="text-2xl font-semibold mb-3 text-gray-800">الفرع الرئيسي</h3>
+                        <p class="text-gray-600 mb-4">22 ش سلمان الفارسي، متفرع من ش جمال عبد الناصر، العصافرة بحري.</p>
+                        <div class="flex flex-wrap justify-center gap-2">
+                            <a href="tel:+201289954687" class="text-blue-600 hover:underline flex items-center" aria-label="اتصل بالفرع الرئيسي على رقم 201289954687">
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                </svg>
+                                201289954687
+                            </a>
+                            <a href="tel:+201280197440" class="text-blue-600 hover:underline flex items-center" aria-label="اتصل بالفرع الرئيسي على رقم 201280197440">
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                </svg>
+                                201280197440
+                            </a>
+                            <a href="tel:+201119777203" class="text-blue-600 hover:underline flex items-center" aria-label="اتصل بالفرع الرئيسي على رقم 201119777203">
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                </svg>
+                                201119777203
+                            </a>
+                            <a href="tel:+201063072563" class="text-blue-600 hover:underline flex items-center" aria-label="اتصل بالفرع الرئيسي على رقم 201063072563">
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                </svg>
+                                201063072563
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card" role="complementary">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0L6.343 16.657a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        <h3 class="text-2xl font-semibold mb-3 text-gray-800">فرع محرم بك</h3>
+                        <p class="text-gray-600 mb-4">19 شارع الفكهاني، متفرع من الرصافة، محرم بك.</p>
+                        <div class="flex flex-wrap justify-center gap-2">
+                            <a href="tel:+2033934888" class="text-blue-600 hover:underline flex items-center" aria-label="اتصل بفرع محرم بك على رقم 2033934888">
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                </svg>
+                                2033934888
+                            </a>
+                            <a href="tel:+201000068220" class="text-blue-600 hover:underline flex items-center" aria-label="اتصل بفرع محرم بك على رقم 201000068220">
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                </svg>
+                                201000068220
+                            </a>
+                            <a href="tel:+201550802060" class="text-blue-600 hover:underline flex items-center" aria-label="اتصل بفرع محرم بك على رقم 201550802060">
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                </svg>
+                                201550802060
+                            </a>
+                            <a href="tel:+201555303310" class="text-blue-600 hover:underline flex items-center" aria-label="اتصل بفرع محرم بك على رقم 201555303310">
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                </svg>
+                                201555303310
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-3xl font-bold mb-6 text-gray-800">لمزيد من الاستفسار أو الحجز عبر الهاتف:</h3>
+                <div class="flex flex-wrap justify-center gap-4 mb-12">
+                    <a href="tel:+201000068220" class="btn-secondary flex items-center" role="button" aria-label="اتصل بنا على رقم 201000068220">
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                        اتصل بنا: 201000068220
+                    </a>
+                    <a href="tel:+201280197440" class="btn-secondary flex items-center" role="button" aria-label="اتصل بنا على رقم 201280197440">
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                        201280197440
+                    </a>
+                    <a href="tel:+201119777203" class="btn-secondary flex items-center" role="button" aria-label="اتصل بنا على رقم 201119777203">
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                        201119777203
+                    </a>
+                    <a href="tel:+201159011300" class="btn-secondary flex items-center" role="button" aria-label="اتصل بنا على رقم 201159011300">
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                        201159011300
+                    </a>
+                </div>
+
+                <h3 class="text-3xl font-bold mb-6 text-gray-800">أرسل لنا على واتساب:</h3>
+                <div class="flex flex-wrap justify-center gap-4 mb-12">
+                    <a href="https://wa.me/201000068220" target="_blank" class="btn-primary flex items-center" role="button" aria-label="أرسل رسالة واتساب إلى 01000068220">
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+                        </svg>
+                        01000068220
+                    </a>
+                    <a href="https://wa.me/201114461800" target="_blank" class="btn-primary flex items-center" role="button" aria-label="أرسل رسالة واتساب إلى 01114461800">
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+                        </svg>
+                        01114461800
+                    </a>
+                    <a href="https://wa.me/201289954687" target="_blank" class="btn-primary flex items-center" role="button" aria-label="أرسل رسالة واتساب إلى 01289954687">
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+                        </svg>
+                        01289954687
+                    </a>
+                </div>
+
+                <h3 class="text-3xl font-bold mb-6 text-gray-800">كن جزءًا من مجتمعنا:</h3>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="https://chat.whatsapp.com/IZkgeAQHaA3BluAKMKdvp6" target="_blank" class="btn-secondary flex items-center" role="link" aria-label="انضم لجروب الواتساب الخاص بنا">
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h2a2 2 0 002-2V4a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h2m0 0l4-4m-4 4l-4-4m4 4V4"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9a2 2 0 11-4 0 2 2 0 014 0zm6 0a2 2 0 11-4 0 2 2 0 014 0zm-3 8a3 3 0 100-6 3 3 0 000 6z"></path>
+                        </svg>
+                        انضم لجروب الواتساب
+                    </a>
+                    <a href="https://www.facebook.com/groups/370615296440764/" target="_blank" class="btn-secondary flex items-center" role="link" aria-label="تابعنا على فيسبوك - الجروب الرسمي">
+                        <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2.04C6.51 2.04 2 6.55 2 12.04c0 4.96 3.61 9.09 8.36 9.87v-7.07H7.72V12.04h2.64V9.8c0-2.61 1.59-4.04 3.93-4.04 1.13 0 2.11.2 2.39.29v2.6h-1.55c-1.22 0-1.46.58-1.46 1.43v1.88h2.9l-.42 3.01h-2.48v7.07C18.39 21.13 22 17 22 12.04 22 6.55 17.49 2.04 12 2.04z"/>
+                        </svg>
+                        تابعنا على فيسبوك (الجروب الرسمي)
+                    </a>
+                    <a href="https://www.facebook.com/Dreamalex-travel-178458075535897" target="_blank" class="btn-secondary flex items-center" role="link" aria-label="تابع صفحتنا الرسمية على فيسبوك">
+                        <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2.04C6.51 2.04 2 6.55 2 12.04c0 4.96 3.61 9.09 8.36 9.87v-7.07H7.72V12.04h2.64V9.8c0-2.61 1.59-4.04 3.93-4.04 1.13 0 2.11.2 2.39.29v2.6h-1.55c-1.22 0-1.46.58-1.46 1.43v1.88h2.9l-.42 3.01h-2.48v7.07C18.39 21.13 22 17 22 12.04 22 6.55 17.49 2.04 12 2.04z"/>
+                        </svg>
+                        تابع صفحتنا الرسمية على فيسبوك
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-8 text-center rounded-t-xl" role="contentinfo">
+        <p>&copy; 2025 دريم أليكس. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <!-- 
+    =====================================================================
+    قسم السكربتات (JavaScript)
+    يحتوي على منطق تفاعل الصفحة، مثل مؤقت العد التنازلي، وتغيير الخلفية،
+    ومنطق إرسال النموذج.
+    =====================================================================
+    -->
+    <script>
+        // تهيئة أيقونات Lucide (تم إزالة استدعاء createIcons() حيث لم تعد المكتبة مستخدمة)
+        // lucide.createIcons();
+
+        // مصفوفة من عناوين URL للصور لخلفية قسم البطل (Hero Section) الدوارة
+        // ملاحظة: لتحسين الأداء بشكل أكبر، يمكن تحويل هذه الصور إلى صيغ WebP/AVIF
+        // واستخدامها مع عنصر <picture> لتوفير صيغ مختلفة للمتصفحات المختلفة.
+        const heroImages = [
+            'https://i.pinimg.com/736x/1e/16/cd/1e16cd64d47570b11b94a793290bb32c.jpg',
+            'https://i.pinimg.com/736x/c5/76/b5/c576b5cc7a074dab28b56f482a8913eb.jpg',
+            'https://i.pinimg.com/736x/02/3a/6f/023a6f21e30a0f2d1991ecceae1ff018.jpg',
+            'https://i.pinimg.com/736x/41/5c/8f/415c8f62b40118a4b2add8f5cdeffb0a.jpg',
+            'https://i.pinimg.com/736x/00/cd/0a/00cd0afee75b96b01e86af8c2627820d.jpg',
+            'https://i.pinimg.com/736x/9d/e5/36/9de53622e0fa63a59ab18196a88519ab.jpg',
+            'https://i.pinimg.com/736x/48/d2/3a/48d23a2b848ee10243b7348769c60672.jpg',
+            'https://i.pinimg.com/736x/0e/45/6b/0e456b26623d2c41c804fa5d6be573ea.jpg',
+            'https://i.pinimg.com/736x/1b/ee/38/1bee381895011d196403cf70f5fa265c.jpg',
+            'https://i.pinimg.com/736x/66/2a/d8/662ad8a1beb52261cdfe8fb2b5d6acc0.jpg'
+        ];
+
+        let currentImageIndex = 0;
+        const heroSection = document.querySelector('.hero-section');
+
+        // التحميل المسبق للصور لمنع الوميض أثناء الانتقال
+        const preloadImages = (urls) => {
+            urls.forEach(url => {
+                const img = new Image();
+                img.src = url;
+                // تفعيل التحميل الكسول (Lazy Loading) للصور غير المرئية في البداية
+                img.loading = 'lazy'; 
+            });
+        };
+        preloadImages(heroImages);
+
+        // وظيفة لتغيير صورة الخلفية
+        const changeHeroBackground = () => {
+            currentImageIndex = (currentImageIndex + 1) % heroImages.length;
+            heroSection.style.backgroundImage = `url('${heroImages[currentImageIndex]}')`;
+        };
+
+        // تعيين صورة الخلفية الأولية
+        heroSection.style.backgroundImage = `url('${heroImages[currentImageIndex]}')`;
+
+        // تعيين الفاصل الزمني لتغيير الصورة كل 3 ثوانٍ (3000 مللي ثانية)
+        setInterval(changeHeroBackground, 3000);
+
+        // منطق مؤقت العد التنازلي (عيد الأضحى 2025 - التاريخ المستهدف 8 يونيو 2025، 00:00:00 بتوقيت شرق أوروبا الصيفي)
+        const eidDate = new Date('June 8, 2025 00:00:00 GMT+0300').getTime(); // EEST هو GMT+3
+
+        const updateCountdown = () => {
+            const now = new Date().getTime();
+            const distance = eidDate - now;
+
+            // حساب الأيام والساعات والدقائق والثواني المتبقية
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // تحديث عناصر DOM بالقيم الجديدة، مع إضافة صفر بادئ إذا كانت القيمة أقل من 10
+            document.getElementById('days').innerText = days < 10 ? '0' + days : days;
+            document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
+            document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+
+            // إذا انتهى العد التنازلي، عرض رسالة "انتهى العرض!"
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.querySelector('.countdown-timer').innerHTML = '<span class="text-2xl font-bold">انتهى العرض!</span>';
+            }
+        };
+
+        // تحديث العد التنازلي كل ثانية
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown(); // استدعاء أولي لعرض العد التنازلي فورًا
+
+        // منطق مؤشر تقدم التمرير
+        const scrollProgress = document.getElementById('scroll-progress');
+        window.addEventListener('scroll', () => {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (scrollTop / scrollHeight) * 100;
+            scrollProgress.style.width = scrolled + '%';
+            scrollProgress.setAttribute('aria-valuenow', Math.round(scrolled));
+        });
+
+        // منطق زر الدعوة الثابت (تمت إزالته بناءً على طلب المستخدم)
+        /*
+        const stickyCtaButton = document.getElementById('sticky-cta-button');
+        const heroSectionHeight = heroSection.offsetHeight;
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > heroSectionHeight / 2) {
+                stickyCtaButton.classList.add('show');
+            } else {
+                stickyCtaButton.classList.remove('show');
+            }
+        });
+        */
+
+        // Intersection Observer لتحريك العناصر عند ظهورها في العرض
+        const animateOnScroll = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up');
+                    observer.unobserve(entry.target);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(animateOnScroll, {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        });
+
+        // مراقبة العناصر التي تحتوي على تأثيرات الدخول
+        document.querySelectorAll('.card, .section-gradient, #why-dream-alex-heading, #booking-form-section').forEach(el => {
+            observer.observe(el);
+        });
+
+        // التمرير السلس للروابط الداخلية
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // منطق إرسال نموذج الواتساب مع التحقق من صحة البيانات في الوقت الفعلي
+        const bookingForm = document.getElementById('booking-form');
+        const fullNameInput = document.getElementById('full-name');
+        const phoneNumberInput = document.getElementById('phone-number');
+        const numAdultsInput = document.getElementById('num-adults');
+        const numChildrenInput = document.getElementById('num-children');
+
+        // وظيفة لعرض رسالة خطأ
+        const displayError = (element, message) => {
+            const errorDiv = document.getElementById(element.id + '-error');
+            if (errorDiv) {
+                errorDiv.textContent = message;
+            }
+            element.classList.add('border-red-500'); // إضافة حدود حمراء للإشارة إلى الخطأ
+        };
+
+        // وظيفة لإخفاء رسالة الخطأ
+        const hideError = (element) => {
+            const errorDiv = document.getElementById(element.id + '-error');
+            if (errorDiv) {
+                errorDiv.textContent = '';
+            }
+            element.classList.remove('border-red-500'); // إزالة الحدود الحمراء
+        };
+
+        // التحقق من صحة الاسم الكامل
+        fullNameInput.addEventListener('input', () => {
+            if (fullNameInput.value.trim() === '') {
+                displayError(fullNameInput, 'الاسم الكامل مطلوب.');
+            } else {
+                hideError(fullNameInput);
+            }
+        });
+
+        // التحقق من صحة رقم الهاتف (مصري)
+        phoneNumberInput.addEventListener('input', () => {
+            const phonePattern = /^01[0-9]{9}$/;
+            if (!phonePattern.test(phoneNumberInput.value)) {
+                displayError(phoneNumberInput, 'يرجى إدخال رقم هاتف مصري صحيح (11 رقمًا يبدأ بـ 01).');
+            } else {
+                hideError(phoneNumberInput);
+            }
+        });
+
+        // التحقق من صحة عدد البالغين
+        numAdultsInput.addEventListener('input', () => {
+            if (parseInt(numAdultsInput.value) < 1) {
+                displayError(numAdultsInput, 'يجب أن يكون عدد البالغين واحدًا على الأقل.');
+            } else {
+                hideError(numAdultsInput);
+            }
+        });
+
+        // التحقق من صحة عدد الأطفال
+        numChildrenInput.addEventListener('input', () => {
+            if (parseInt(numChildrenInput.value) < 0) {
+                displayError(numChildrenInput, 'لا يمكن أن يكون عدد الأطفال أقل من صفر.');
+            } else {
+                hideError(numChildrenInput);
+            }
+        });
+
+
+        bookingForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // منع الإرسال الافتراضي للنموذج
+
+            // تشغيل التحقق من صحة جميع الحقول عند الإرسال
+            let isValid = true;
+            if (fullNameInput.value.trim() === '') {
+                displayError(fullNameInput, 'الاسم الكامل مطلوب.');
+                isValid = false;
+            } else {
+                hideError(fullNameInput);
+            }
+
+            const phonePattern = /^01[0-9]{9}$/;
+            if (!phonePattern.test(phoneNumberInput.value)) {
+                displayError(phoneNumberInput, 'يرجى إدخال رقم هاتف مصري صحيح (11 رقمًا يبدأ بـ 01).');
+                isValid = false;
+            } else {
+                hideError(phoneNumberInput);
+            }
+
+            if (parseInt(numAdultsInput.value) < 1) {
+                displayError(numAdultsInput, 'يجب أن يكون عدد البالغين واحدًا على الأقل.');
+                isValid = false;
+            } else {
+                hideError(numAdultsInput);
+            }
+
+            if (parseInt(numChildrenInput.value) < 0) {
+                displayError(numChildrenInput, 'لا يمكن أن يكون عدد الأطفال أقل من صفر.');
+                isValid = false;
+            } else {
+                hideError(numChildrenInput);
+            }
+
+            if (!isValid) {
+                // إذا كان هناك أي خطأ، توقف هنا ولا ترسل رسالة الواتساب
+                return;
+            }
+
+            const fullName = fullNameInput.value;
+            const phoneNumber = phoneNumberInput.value;
+            const numAdults = numAdultsInput.value;
+            const numChildren = numChildrenInput.value; 
+
+            // إنشاء رسالة الواتساب بجميع البيانات المجمعة
+            const message = `طلب حجز رحلة أكويا ووتر بارك:\n` +
+                            `الاسم الكامل: ${fullName}\n` +
+                            `رقم الهاتف: ${phoneNumber}\n` +
+                            `عدد البالغين: ${numAdults}\n` +
+                            `عدد الأطفال (أقل من 10 سنوات): ${numChildren}\n` +
+                            `برجاء تأكيد الحجز.`;
+
+            // ترميز الرسالة لعنوان URL
+            const encodedMessage = encodeURIComponent(message);
+
+            // رقم الواتساب المستهدف
+            const whatsappNumber = '201000068220';
+
+            // إنشاء رابط الواتساب
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+            // فتح الواتساب في علامة تبويب جديدة
+            window.open(whatsappUrl, '_blank');
+
+            // اختياريًا، مسح النموذج بعد الإرسال الناجح
+            bookingForm.reset();
+        });
+
+        // ملاحظة: يمكن دمج Google Analytics و A/B Testing Frameworks هنا
+        // <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+        // <script>
+        //   window.dataLayer = window.dataLayer || [];
+        //   function gtag(){dataLayer.push(arguments);}
+        //   gtag('js', new Date());
+        //   gtag('config', 'GA_MEASUREMENT_ID');
+        // </script>
+        // <script src="https://abtesting.example.com/script.js"></script>
+    </script>
+</body>
+</html>
